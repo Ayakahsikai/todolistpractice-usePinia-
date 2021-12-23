@@ -1,7 +1,13 @@
-# Vue 3 + Vite
+Vite Vue 3.0 composition api practice
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+todoList
 
-## Recommended IDE Setup
+use pinia, localStorage, 
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+data: {
+    id: timestamp,
+    msg: String,
+    isDone: boolean,
+    createAt: timestamp,
+    updateAt: timestamp
+}
