@@ -1,21 +1,36 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
-<template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+<template lang="pug">
+//- 輸入框
+div.container
+  div todoList
+  TodoInput
+  //- 清單
+  ul
+    Todolist(v-for="item in todoStore.todolist", :key="item.id", v-bind="item")
+  //- 過濾
+  TodoFilter
 </template>
 
+<script setup>
+import TodoInput from './components/todoInput.vue';
+import Todolist from './components/todoList.vue';
+import { useTodoStore } from './store/todo.js'
+import TodoFilter from './components/todoFilter.vue';
+
+components: {
+  TodoInput,
+  Todolist,
+  TodoFilter
+}
+
+const todoStore = useTodoStore();
+
+</script>
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 </style>
