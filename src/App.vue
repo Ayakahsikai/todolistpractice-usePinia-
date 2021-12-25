@@ -1,13 +1,15 @@
 <template lang="pug">
 //- 輸入框
 div.container
-  div todoList
-  TodoInput
-  //- 清單
-  ul
-    Todolist(v-for="item in todoStore.todolist", :key="item.id", v-bind="item")
-  //- 過濾
-  TodoFilter
+  .title todoList
+  .card 
+    TodoInput
+    //- 過濾
+    .filterlist
+      TodoFilter
+    //- 清單
+    ul.todoItemList
+      Todolist(v-for="(item, index) in todoStore.listupdate()", v-bind="item", :index="index")
 </template>
 
 <script setup>
@@ -32,5 +34,41 @@ const todoStore = useTodoStore();
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.container {
+  background-color: #333;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border: 1px solid #fff;
+  border-radius: 30px;
+  background-color: rgba(80, 80, 80, 0.6);
+  padding: 30px;
+  width: 50%;
+}
+
+.title {
+  font-size: 40px;
+  color: #FFF;
+}
+
+.filterlist {
+  display: flex;
+  flex-direction: row;
+}
+
+.todoItemList {
+  margin-top: 10px;
+  /* margin: 10px; */
+  background-color: #fff;
+  width: 100%;
+  border-radius: 10px;
 }
 </style>
