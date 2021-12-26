@@ -1,7 +1,7 @@
 <template lang="pug">
-input(type="button", value="全部", @click="changeFilter", :class="todoStore.filterOption === 'all' ? 'active' : ''")
-input(type="button", value="已完成", @click="changeFilter", :class="todoStore.filterOption === 'isdone' ? 'active' : ''")
-input(type="button", value="未完成", @click="changeFilter", :class="todoStore.filterOption === 'notDone' ? 'active' : ''")
+input(type="button", value="全部", @click="changeFilter", :class="{ active: todoStore.filterOption === 'all' }")
+input(type="button", value="已完成", @click="changeFilter", :class="{ active: todoStore.filterOption === 'isDone' }")
+input(type="button", value="未完成", @click="changeFilter", :class="{ active: todoStore.filterOption === 'notDone' }")
 </template>
 
 <script setup>

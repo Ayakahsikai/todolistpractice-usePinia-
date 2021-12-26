@@ -31,6 +31,9 @@ export const useTodoStore = (id = 'todo') => defineStore(id, {
         filterList: []
     }),
     actions: {
+        getIndex(id) {
+            return this.todolist.findIndex(el => el.id === id);
+        },
         add() {
             // console.log(this.input)
             if(this.input == "") return;
@@ -38,16 +41,16 @@ export const useTodoStore = (id = 'todo') => defineStore(id, {
         },
         update(id, msg) {
             if(msg == "") return;
-            const index = this.todolist.findIndex(el => el.id === id);
+            const index = getIndex(id);
             this.todolist[index].msg = msg
             this.todolist[index].updateAt = Date.now()
         },
         del(id) {
-            const index = this.todolist.findIndex(el => el.id === id);
+            const index = getIndex(id);
             this.todolist.splice(index, 1)
         },
         stateUpdate(id) {
-            const index = this.todolist.findIndex(el => el.id === id);
+            const index = getIndex(id);
             this.todolist[index].isDone = this.todolist[index].isDone ? false : true
             this.todolist[index].updateAt = Date.now()
         },
