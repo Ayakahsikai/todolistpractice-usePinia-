@@ -42,7 +42,7 @@ const todoStore = useTodoStore();
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -55,7 +55,7 @@ const todoStore = useTodoStore();
 }
 
 .title {
-  font-size: 40px;
+  font-size: 70px;
   color: #FFF;
 }
 

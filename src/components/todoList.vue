@@ -8,9 +8,9 @@ li
     div(@click="stateUpdate", v-else) {{ index + 1 }}. {{ msg }}
     //- input(type="button", value="編輯")
     //- input(type="button", value="刪除")
-    button(style="--b: 1", @click="editStatus = true")
+    button.edit(style="--b: 1", @click="editStatus = true")
         DocumentReportIcon(style="width: 30px;height: 30px;")
-    button(style="--b: 0", @click="delTodo")
+    button.del(style="--b: 0", @click="delTodo")
         TrashIcon(style="width: 30px;height: 30px;")
 </template>
 
@@ -90,6 +90,13 @@ button {
     font-size: 30px;
     border: none;
     outline: none;
+}
+
+.edit:hover {
+    color: #5df;
+}
+.del:hover {
+    color: red;
 }
 
 * {
